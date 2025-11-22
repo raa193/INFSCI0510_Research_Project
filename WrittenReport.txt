@@ -1,0 +1,69 @@
+*This is just the readME.md in a text file.
+
+The Sound of Success: An Analysis of Billboard Top 100 Trends (1958-2025)
+
+Haiden Hunter, Ryan Armendariz-Lopez
+hnh21@pitt.edu, raa193@pitt.edu
+
+Our Research Question: 
+What musical characteristics are most strongly associated with chart success on the Billboard Top 100, and 
+how have these features evolved over time? Drawing on publicly available datasets from Billboard, Spotify, 
+and Genius, we plan to merge chart rankings with quantitative audio features such as tempo, energy, key, and danceability.
+
+Why This Research Question Interesting to Us:
+This research topic interests us because we’re both independent music producers trying to make our way in an 
+industry that can feel impossible to break into without a major label or massive marketing budget. We’ve always 
+wondered what really separates songs that make it onto the Billboard charts from those that don’t. By analyzing 
+data on popular songs, we hope to understand what kinds of musical and lyrical features tend to connect with audiences.
+Our goal isn’t to copy trends, but to use data to make smarter creative choices and help other indie artists do the same. 
+
+Why Do You Consider Your Project Useful and Who Would Benefit From Your Model:
+This project is useful because it transforms subjective ideas about “what makes a hit” into interpretable insights. 
+Music producers, songwriters, and marketers could use the findings to identify shifting stylistic trends, benchmark new 
+releases against historical patterns, or anticipate emerging sounds likely to resonate with audiences. Ultimately, it 
+would be great to have both a predictive tool to identify where a song might end up on the charts based on its quantitative 
+audio features, as well as general analysis of chart history to predict what trends might be on the rise.
+
+How We Obtained the Data and What the Features Mean:
+We obtained both our data sets from kaggle. Origionally we only had 1, however we were forced to comprimise because the 
+Spotify API we were planning to use had been terminated since we brainstormed. Our plan was to take each track name and artist, 
+and put it into the Spotify API to get track features that Spotify keeps track of such as dancability, tempo, enegry, key, etc... 
+But since the API was no longer publically available, I found a dataset that kept track of 1.2+ millions songs that had already 
+been run through the Spotify API. This led to us loosing about half of the data, however we were still able to get the information 
+of about 180,000+ songs on the Billboard Hot 100. You can see how we did this in the notebook.
+For the hot-100-current.csv, the features are very self explanitory. It is a dataset that logs the Billboard Hot 100 every week. 
+The main feature of importance being wks_on_chart, which describes how many weeks a song has been on the Billboard Hot 100.
+However, the tracks_features.csv is more complicated. Track information is self eplanitory, but the track features are confusing.
+Explicit: Whether the song is explicit or not.
+Danceability: How suitable a track is for dancing.
+Energy: How intense and active a track is.
+Key: The musical key of the track.
+Loudness: Overall loudness of the track, in decibels.
+Speechiness: Proportion of spoken words in the track.
+Acousticness: Confidence measure of whether a track is acoustic.
+Liveness: Detects live audience in a track. Represents the probability that a track was performed live.
+Valence: Measures how positive a track sounds, from 1 (extremely positive) to 0 (extremely negative).
+Tempo: Overall tempo of a track, in beats per minute (BPM).
+Duration_MS: Duration of a track, in milliseconds.
+Time_Signature: Overall time signature of a track.
+
+Data Cleaning:
+The Billboard Hot 100 dataset was super clean which was great. However all of our issues came with the the failure of the Spotify API. 
+We ended up losing half of our dataset since the tracks_features.csv only included half of the songs. We had to just bite the bullet and 
+delete the other half of the billboard dataset. Luckily we still had 180,000+ tracks which will be more than plenty for a model.
+Since the billboard data is accurate, it contained no accidental outliers meaning we decided to keep all of the data. 
+As we move forward we will see if scaling will be necessary. However, based on our current plans it will not be necessary since every 
+feature is calibrated to its own 0 to 1 scale already.
+
+Feature Selection:
+We plan on creating a few models with different combinations of predictors for each tracks danceability, energy, loudness, key, speechiness, 
+acousticness, liveness, valence, tempo, duration, key, and explicitness. A possible set of predictors for a baseline could be enegry, loudness, 
+valence, tempo, and key. These features would be used to predict weeks on the chart, which would be our responce. We are still figuring out 
+which predictors would be best. However, we choose thoes as our baseline as they are features musicials can easily control through production 
+and mixing, allowing the artist to make fundamentally different versions of a song, since these features are comprised of the key components of 
+a song, and use our model to predict which will perform better on the charts.
+
+Overall Thoughts:
+We have a lot of data, which causes our visualizations to just look like blobs. Yet, there are already clear patterns appearing.
+We are excited to continue mssing with the data and begin to create and test our models. Also, our notebook can take up to 5 to 10 minutes 
+to run depending on the speed of your computer so please be patient.

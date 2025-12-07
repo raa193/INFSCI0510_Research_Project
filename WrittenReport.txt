@@ -34,6 +34,7 @@ of about 180,000+ songs on the Billboard Hot 100. You can see how we did this in
 For the hot-100-current.csv, the features are very self explanitory. It is a dataset that logs the Billboard Hot 100 every week. 
 The main feature of importance being wks_on_chart, which describes how many weeks a song has been on the Billboard Hot 100.
 However, the tracks_features.csv is more complicated. Track information is self eplanitory, but the track features are confusing.
+
 Explicit: Whether the song is explicit or not.
 Danceability: How suitable a track is for dancing.
 Energy: How intense and active a track is.
@@ -57,9 +58,9 @@ feature is calibrated to its own 0 to 1 scale already.
 
 Feature Selection:
 We plan on creating a few models with different combinations of predictors for each tracks danceability, energy, loudness, key, speechiness, 
-acousticness, liveness, valence, tempo, duration, key, and explicitness. A possible set of predictors for a baseline could be enegry, loudness, 
-valence, tempo, and key. These features would be used to predict weeks on the chart, which would be our responce. We are still figuring out 
-which predictors would be best. However, we choose thoes as our baseline as they are features musicials can easily control through production 
+acousticness, liveness, valence, tempo, duration, key, and explicitness. A possible set of predictors for a baseline could be energy, loudness, 
+valence, tempo, and key. These features would be used to predict weeks on the chart, which would be our response. We are still figuring out 
+which predictors would be best. However, we chose those as our baseline as they are features musicians can easily control through production 
 and mixing, allowing the artist to make fundamentally different versions of a song, since these features are comprised of the key components of 
 a song, and use our model to predict which will perform better on the charts.
 

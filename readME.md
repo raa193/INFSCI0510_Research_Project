@@ -13,23 +13,24 @@ This research topic interests us because we’re both independent music producer
 This project is useful because it transforms subjective ideas about “what makes a hit” into interpretable insights. Music producers, songwriters, and marketers could use the findings to identify shifting stylistic trends, benchmark new releases against historical patterns, or anticipate emerging sounds likely to resonate with audiences. Ultimately, it would be great to have both a predictive tool to identify where a song might end up on the charts based on its quantitative audio features, as well as general analysis of chart history to predict what trends might be on the rise.
 
 ### How We Obtained the Data and What the Features Mean:
-We obtained both our data sets from kaggle. Origionally we only had 1, however we were forced to comprimise because the Spotify API we were planning to use had been terminated since we brainstormed. Our plan was to take each track name and artist, and put it into the Spotify API to get track features that Spotify keeps track of such as dancability, tempo, enegry, key, etc... But since the API was no longer publically available, I found a dataset that kept track of 1.2+ millions songs that had already been run through the Spotify API. This led to us loosing about half of the data, however we were still able to get the information of about 180,000+ songs on the Billboard Hot 100. You can see how we did this in the notebook.
+We obtained both our data sets from kaggle. Originally we only had 1, however we were forced to compromise because the Spotify API we were planning to use had been terminated. Our plan was to take each track name and artist, and put it into the Spotify API to get track features that Spotify keeps track of such as dancability, tempo, enegry, key, etc... But since the API was no longer publically available, I found a dataset that kept track of 1.2+ millions songs that had already been run through the Spotify API. This led to us loosing about half of the data, however we were still able to get the information of about 180,000+ songs on the Billboard Hot 100. You can see how we did this in the notebook.
 
 For the hot-100-current.csv, the features are very self explanitory. It is a dataset that logs the Billboard Hot 100 every week. The main feature of importance being wks_on_chart, which describes how many weeks a song has been on the Billboard Hot 100.
 
-However, the tracks_features.csv is more complicated. Track information is self eplanitory, but the track features are confusing.
-Explicit: Whether the song is explicit or not.
-Danceability: How suitable a track is for dancing.
-Energy: How intense and active a track is.
-Key: The musical key of the track.
-Loudness: Overall loudness of the track, in decibels.
-Speechiness: Proportion of spoken words in the track.
-Acousticness: Confidence measure of whether a track is acoustic.
-Liveness: Detects live audience in a track. Represents the probability that a track was performed live.
-Valence: Measures how positive a track sounds, from 1 (extremely positive) to 0 (extremely negative).
-Tempo: Overall tempo of a track, in beats per minute (BPM).
-Duration_MS: Duration of a track, in milliseconds.
-Time_Signature: Overall time signature of a track.
+However, the tracks_features.csv is more complicated. Track information is self explanatory, but the track features are confusing:
+
+- **Explicit:** Whether the song is explicit or not.
+- **Danceability:** How suitable a track is for dancing.
+- **Energy:** How intense and active a track is.
+- **Key:** The musical key of the track.
+- **Loudness:** Overall loudness of the track, in decibels.
+- **Speechiness:** Proportion of spoken words in the track.
+- **Acousticness:** Confidence measure of whether a track is acoustic.
+- **Liveness:** Detects live audience in a track. Represents the probability that a track was performed live.
+- **Valence:** Measures how positive a track sounds, from 1 (extremely positive) to 0 (extremely negative).
+- **Tempo:** Overall tempo of a track, in beats per minute (BPM).
+- **Duration_MS:** Duration of a track, in milliseconds.
+- **Time_Signature:** Overall time signature of a track.
 
 ### Data Cleaning:
 The Billboard Hot 100 dataset was super clean which was great. However all of our issues came with the the failure of the Spotify API. We ended up losing half of our dataset since the tracks_features.csv only included half of the songs. We had to just bite the bullet and delete the other half of the billboard dataset. Luckily we still had 180,000+ tracks which will be more than plenty for a model.
